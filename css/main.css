@@ -1,0 +1,97 @@
+body{
+    background-color: #001134;
+    border-color: transparent;
+    
+    margin-top: 0; /* Pra deixar o body "colado" com o topo do site" */
+ 
+    /*
+        "Truquezinho" para centralizar a página | info: http://www.maujor.com/dicas/pg_centrada.php
+    */    
+    width: 942px;    
+    margin: auto;
+}
+
+footer{
+    background-color: #FFF;
+    padding: 10px;
+
+    border-radius: 8px;
+    text-align: center;
+}
+
+.header{    
+    background-image: url(../layout/img/header.png);	
+	background-repeat: repeat-y;
+    
+    border-left: solid;    
+    border-left-color: #000;
+    border-left-width: 1px;
+    
+    border-right: solid;    
+    border-right-color: #000;
+    border-right-width: 1px;   
+    
+    height: 225px;
+}
+
+/*
+    Conteúdo da página
+*/
+.content{
+    margin-top: 15px;
+    background-color: #FFF;
+    
+    text-align: left;
+    
+    padding: 5px;
+    padding-left: 15px;
+    
+    border-radius: 5px;
+    border-color: transparent;    
+}
+
+.nav_bar{
+    background-color: #044076;
+    
+    padding: 20px;    
+    padding-top: 0px;
+    
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.nav_bar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_bar li{
+    display: inline; /* Faz com que a barra fique horizontal */
+}
+
+.nav_bar a:link, .nav_bar a:visited{    
+    color: #FFF;    
+    text-align: center;
+    padding: 10px;
+    text-decoration: none; /* Tira o "underline" dos links */
+}
+
+/*
+    Quando o mouse é passado por cima de um objeto a(links)
+*/
+.nav_bar a:hover, nav_bar a:active{
+    background-color: #7A991A;
+    border-radius: 5px; /* Arredonda as bordas */
+}
+
+    
+.icon{
+    position: relative;
+    left: 0px;
+    top: 10px;
+    height: 32px;
+    width: 32px;
+}
+    
