@@ -15,6 +15,7 @@ footer{
     background-color: #FFF;
     padding: 10px;
 
+<<<<<<< HEAD
     text-align: center;        
     font-family: Verdana, Arial, Sans-serif;            
     font-size: 12px;
@@ -25,6 +26,13 @@ footer{
 
 
 header{
+=======
+    border-radius: 8px;
+    text-align: center;
+}
+
+.header{    
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
     background-image: url(../layout/img/header.png);	
 	background-repeat: repeat-y;
     
@@ -39,8 +47,28 @@ header{
     height: 225px;
 }
 
+<<<<<<< HEAD
 
 nav{
+=======
+/*
+    Conteúdo da página
+*/
+.content{
+    margin-top: 15px;
+    background-color: #FFF;
+    
+    text-align: left;
+    
+    padding: 5px;
+    padding-left: 15px;
+    
+    border-radius: 5px;
+    border-color: transparent;    
+}
+
+.nav_bar{
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
     background-color: #044076;
     
     padding: 20px;    
@@ -51,18 +79,30 @@ nav{
 }
 
 
+<<<<<<< HEAD
 nav ul{
+=======
+.nav_bar ul{
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+<<<<<<< HEAD
 nav li{
     display: inline; /* Faz com que a barra fique horizontal */
 }
 
 
 nav a:link, nav a:visited{
+=======
+.nav_bar li{
+    display: inline; /* Faz com que a barra fique horizontal */
+}
+
+.nav_bar a:link, .nav_bar a:visited{    
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
     color: #FFF;    
     text-align: center;
     padding: 10px;
@@ -72,11 +112,16 @@ nav a:link, nav a:visited{
 /*
     Quando o mouse é passado por cima de um objeto a(links)
 */
+<<<<<<< HEAD
 nav a:hover, nav a:active{
+=======
+.nav_bar a:hover, nav_bar a:active{
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
     background-color: #7A991A;
     border-radius: 5px; /* Arredonda as bordas */
 }
 
+<<<<<<< HEAD
 nav form{
     float: right;
 }
@@ -115,6 +160,9 @@ select{
                 box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
+=======
+    
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
 .icon{
     position: relative;
     left: 0px;
@@ -122,6 +170,7 @@ select{
     height: 32px;
     width: 32px;
 }
+<<<<<<< HEAD
 
 
 .container{
@@ -268,3 +317,6 @@ td.guild_logo{
     width: 64px;
     
 }
+=======
+    
+>>>>>>> 20159137017b558fd8ef112a5a20b3d312f55bf9
