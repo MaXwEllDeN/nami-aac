@@ -1,5 +1,6 @@
 <?php
-$main_content .= '
+if (!empty($_REQUEST["name"]))
+    $main_content .= '
         <section class="content">
            <h3>Character information</h3>                       
            <table>
@@ -18,11 +19,7 @@ $main_content .= '
                <tr>
                    <td>Level</td>
                    <td>180</td>
-               </tr>               
-               <tr>
-                   <td>World</td>
-                   <td>Thera</td>
-               </tr>             
+               </tr>                       
                <tr>
                    <td>House</td>
                    <td><a href="#">Central Circle 1</a> (Edron)</td>
@@ -84,12 +81,14 @@ $main_content .= '
                 </tr>                
             </table>
         </section>
-        
+';
+
+$main_content .= '
         <section class="content">
            <h3>Search character</h3>
            
             <form style="display: inline" formaction="#" method="post">
-                <input type="text" min="8" name="character" placeholder="Character name" required>
+                <input type="text" min="8" name="name" placeholder="Character name" required>
                 <input type="submit" value="Search">
             </form>
        </section>        

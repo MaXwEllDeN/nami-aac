@@ -24,6 +24,10 @@ $main_content .= '
                         <td><input type="password" min="8" name="checkpassword" placeholder="Password" required></td>
                     </tr>                 
                     
+                    <tr>
+                        <td>Real name</td>
+                        <td><input type="text" min="8" name="real_name" placeholder="Real Name" required></td>
+                    </tr>                 
                 </table>
                 
                 <h3 style="border-color: transparent;">Create your first character</h3>                
