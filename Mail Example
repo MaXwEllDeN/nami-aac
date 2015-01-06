@@ -1,0 +1,50 @@
+function sendMail($address, $nickname, $subject, $body){
+    require "libs/phpmailer/PHPMailerAutoload.php";
+    $mail = new PHPMailer;
+    
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true; 
+    $mail->Host = $GLOBALS["config"]["smtp_host"];
+    $mail->Port = $GLOBALS["config"]["smtp_port"];
+    $mail->Username = $GLOBALS["config"]["smtp_user"];
+    $mail->Password = $GLOBALS["config"]["smtp_pass"];
+    $mail->From = $GLOBALS["config"]["smtp_user"];
+    $mail->Sender = $GLOBALS["config"]["smtp_user"];
+    $mail->FromName = $GLOBALS["config"]["server_name"];
+    
+    $mail->AddAddress($address, $nickname);
+
+    $mail->IsHTML(true);
+    $mail->CharSet = "utf-8";
+
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+    $sent = $mail->Send();
+    
+    $mail->ClearAllRecipients();
+    
+    if ($sent)
+        return "";
+    else
+        return $mail->ErrorInfo;
+}
+
+if ($_POST["action"] == "register"){
+
+    $assunto = $_POST["real_name"] . " bem vindo ao ". $config["server_name"] . ".";
+    $mensagem = '
+    
+    <h1>Seja bem vindo ao Nami, '. $_POST["real_name"] .'</h1>
+    <p>Gostamos de bacon, batatinha e sorvete.
+    </p>
+
+    Account Name: '. $_POST["login"] . '<br/>
+    Email: '. $_POST["email"] . '<br/>
+    Password: '. $_POST["password"] . '<br/>
+    Real Name: '. $_POST["real_name"] . '<br/>
+    Character Name: '. $_POST["character_name"] . '<br/>
+    Sex: '. $_POST["sex"];
+        
+    sendMail($_POST["email"], $_POST["real_name"], $assunto, $mensagem);   
+}
+//######################################################################################

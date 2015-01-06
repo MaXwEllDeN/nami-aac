@@ -39,8 +39,8 @@ switch($subtopic){
         include("pages/guilds.php");
         break;
     
-    case "accountmanagementA":
-        if ($account_logged)
+    case "accountmanagement":
+        if (!$account_logged)
             include("pages/account_management.php");
         else{
             include("pages/last_news.php");
@@ -66,7 +66,7 @@ switch($subtopic){
     <title><?php echo $config["server_name"] ?></title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="icon" type="image/x-icon" href="favicon.png">
-    
+    <script src="js/main.js"></script>
 </head>
 
 <body>    
@@ -148,65 +148,15 @@ else
                                            
         </div>                  
         
-        <section class="content">
-            <h3>Account Management</h3>
-            <center><h4 style="color: #25334a;">Welcome to your account Maxwell!</h4></center>            
-            <div class="BoxInfo">
-               <div class="CaptionContainer">
-                    <div class="Caption">
-                        <span class="borderEdge" style="top: -2px; left: -2px;"/></span>
-                        <span class="borderEdge" style="top: -2px; right: -2px;"/></span>                    
-                        <span class="borderH" style="top: -1px;"></span>
-                        <span class="borderV" style="left: -1px;"/></span>
-                        <span class="borderV" style="right: -1px;"/></span>
-                        <span class="borderH" style="bottom: -2px;"></span>                    
-                        <span class="borderEdge" style="left: -2px; bottom: -3px;"></span>
-                        <span class="borderEdge" style="right: -2px; bottom: -3px;"></span>
-                        <div class="Content">Characters</div>
-                    </div>
-                </div>
-
-                <div class="Content">
-                    <table style="margin-top: 5px;">
-                        <th style="width: 15px;">#</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th></th>
-
-                        <tr style="active">
-                            <td>1.</td>
-                            <td style="width: 100%">
-                            Max Kion<br/>                            
-                            Elite Knight - Level 180
-                            </td>
-                            <td></td>
-                            <td style="display: none;">                                
-                                <center>
-                                    [Edit]
-                                    [Delete]
-                                </center>
-                            </td>
-                        </tr>           
-
-                        <tr>
-                            <td>2.</td>
-                            <td style="width: 100%">
-                            Gandowlf<br/>                            
-                            Elder Druid - Level 178
-                            <td>hidden</td>
-                            <td></td>
-                        </tr>                                                                            
-                    </table>                        
-                </div>
-            </div>        
-        </section>
+        <!-- Conteúdo do Website -->
+        
 <?php
-    //echo $main_content;  // Inclui o conteúdo principal na página
+    echo $main_content;  // Inclui o conteúdo principal na página
 ?>    
     </div> 
 
     <footer><p>
-        &copy; 2014 Nami Acc Maker.<a href="https://github.com/MaXwEllDeN/nami-acc" target="_blank"><img style="vertical-align: -50%%;" src="https://assets-cdn.github.com/favicon.ico" alt="Github"></a></p>
+        &copy; 2014 Nami Acc Maker.<a href="https://github.com/MaXwEllDeN/nami-aac" target="_blank"><img style="vertical-align: -50%%;" src="https://assets-cdn.github.com/favicon.ico" alt="Github"></a></p>
     </footer>
 </body>
 
