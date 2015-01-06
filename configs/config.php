@@ -15,7 +15,7 @@ $config = array(
     "smtp_host" => "mx1.hostinger.com.br",
     "smtp_port" => "2525",
     "smtp_user" => "no-reply@nami.esy.es",
-    "smtp_pass" => "1511390Na"
+    "smtp_pass" => ""
 );
 
 
