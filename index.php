@@ -44,7 +44,7 @@ switch($subtopic){
         break;
     
     case "accountmanagement":
-        if (!$account_logged)
+        if ($account_logged)
             include("pages/account_management.php");
         else{
             include("pages/last_news.php");
@@ -86,9 +86,9 @@ $db = Database::getInstance();
 // Se não estiver logado, mostra menu para logar
 if (!$account_logged)
     echo '
-            <form style="display: inline" formaction="#" method="post">
-                <input type="text" min="8" name="login" placeholder="Account name" required>
-                <input type="password" min="8" name="password" placeholder="Password" required>
+            <form formaction="#" method="post">
+                <input type="text" min="8" name="login" placeholder="Account name" size="10" required>
+                <input type="password" min="8" name="password" placeholder="Password" size="10" required>
                 <input type="hidden" name="action" value="login">
                 <input type="submit" value="Login">
                 <a href="index.php?subtopic=createacc"><img class="icon" src="layout/img/icon/account.gif" alt=""> Create Account</a>

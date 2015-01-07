@@ -85,7 +85,7 @@ nav form input[type="submit"]{
     color: #FFF;    
     font-weight: bold;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     background-color: #7A991A;
     border-radius: 5px; /* Arredonda as bordas */        
 }
