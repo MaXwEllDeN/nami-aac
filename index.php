@@ -1,6 +1,10 @@
 <?php
+ini_set("memory_limit",-1);
 error_reporting(E_ALL ^ E_NOTICE); // Diz para o PHP informar qualquer erro que aconteça    
 include("configs/config.php"); // Inclui arquivo de configurações
+
+require_once "libs/class.database.php";
+require_once "modules/class.player.php";
 
 session_start(); // Inicia uma session
 
@@ -55,7 +59,8 @@ switch($subtopic){
     default:        
         include("pages/error.php");
 }
-    
+
+$db = Database::getInstance();
 ?>
 
 <!DOCTYPE html>
@@ -114,35 +119,26 @@ else
             
             <div class="menu_content">
                 <h2>Highscores</h2>
-<!--                <div class="separator"></div>-->
                 <table>
+<?php
+$stm = $db->prepare("SELECT * FROM `players` ORDER BY `experience` DESC LIMIT 5;");
+$stm->execute();
+$counter = 0;
+
+while($result = $stm->fetch(PDO::FETCH_ASSOC)){
+    $counter++;
+    
+echo '
                     <tr>
-                        <td><strong>1.</strong></td>
-                        <td><a href="#">Max Kion</a></td>
-                        <td class="level">Lvl. 180</td>
+                        <td><strong>'. $counter .'.</strong></td>
+                        <td><a href="index.php?subtopic=characters&name='. $result["name"] .'">'. $result["name"].'</a></td>
+                        <td class="level">Lvl. '. $result["level"].'</td>
                     </tr>
-                    <tr>
-                        <td><strong>2.</strong></td>
-                        <td><a href="#">Gandowlf</a></td>
-                        <td class="level">Lvl. 178</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3.</strong></td>
-                        <td><a href="#">Smadok</a></td>
-                        <td class="level">Lvl. 167</td>
-                    </tr>                    
-                    
-                    <tr>
-                        <td><strong>4.</strong></td>
-                        <td><a href="#">Lawkz</a></td>
-                        <td class="level">Lvl. 134</td>
-                    </tr>
-                    
-                    <tr>
-                        <td><strong>5.</strong></td>
-                        <td><a href="#">Lord'Paulistinha</a></td>
-                        <td class="level">Lvl. 98</td>
-                    </tr>                                                                                                                        
+';
+}
+?>
+        
+                                                          
                 </table>
             </div>              
                                            
