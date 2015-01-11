@@ -53,9 +53,26 @@ if ($info){
                    <td>'. $config["server"]["towns"][$info["town_id"]] .'</td>
                </tr>                       
                <tr>
-                   <td>Last seen</td>
-                   <td>'. date('m/d/Y, H:i:s', $row["lastlogin"]) .'</td>
-               </tr>            
+                   <td>Last seen</td>';
+    
+    if ($row["lastlogin"] == 0)
+        $main_content .= "
+                    <td>Never logged in.</td>";
+    else
+        $main_content .= '
+                   <td>'. date('d \of F Y, H:i A', $row["lastlogin"]) .'</td>';
+    
+    
+    $main_content .= '
+               </tr>';
+        
+    if ($info["comment"] != "")
+        $main_content .= '
+               <tr>
+                   <td>Comment</td>
+                   <td style="padding: 10px;"><span>'. $info["comment"] .'</span></td>';
+    
+    $main_content .= '           
                <tr>
                    <td>Account Status</td>';
 
@@ -74,7 +91,6 @@ $main_content .= '
         </section>      
     ';
     
-    
     if ($info["hidden"] == 0){
         $main_content .= '
             <section class="content">
@@ -82,20 +98,14 @@ $main_content .= '
                 <table>
                     <tr>
                         <td>Created</td>
-                        <td>May 25 2011, 03:26:05 CEST</td>
+                        <td>'. date('d \of F Y, H:i A', $acc->getCreationTime()) .'</td>
                     </tr>
 
                     <tr>
                         <td>Real name</td>
-                        <td>Maxwell</td>
+                        <td>'. $acc->getRealName() .'</td>
                     </tr>
-
-                    <tr>
-                        <td>Skype</td>
-                        <td><strong>MaXwEllDeN</strong></td>
-                    </tr>
-                </table>
-                ';
+                </table>';
 
         $chars = array();
 
@@ -130,22 +140,47 @@ $main_content .= '
                         <td style="font-weight: bold; color: darkred">Offline</td>';
 
                 $main_content .= '
-                    </tr>                              
-                </table>';
+                    </tr>';
 
             }
+            
+            $main_content .= '
+                </table>';            
         }
 
         $main_content .= '        
             </section>';
     }
-}    
+}elseif(!empty($_REQUEST["name"])){
+    $error = '
+            <div class="BoxInfo" style="margin-top: 20px; margin-bottom: 20px;">
+               <div class="CaptionContainer">
+                    <div class="Caption">
+                        <span class="borderEdge" style="top: -2px; left: -2px;"/></span>
+                        <span class="borderEdge" style="top: -2px; right: -2px;"/></span>                    
+                        <span class="borderH" style="top: -1px;"></span>
+                        <span class="borderV" style="left: -1px;"/></span>
+                        <span class="borderV" style="right: -1px;"/></span>
+                        <span class="borderH" style="bottom: -2px;"></span>                    
+                        <span class="borderEdge" style="left: -2px; bottom: -3px;"></span>
+                        <span class="borderEdge" style="right: -2px; bottom: -3px;"></span>
+                        <div class="Content">Could not find character</div>
+                    </div>
+                </div>
+
+                <div class="Content">
+                    <span>Character <b>'. $_REQUEST["name"] .'</b> does not exist.</span>
+                </div>
+            </div>            
+    
+    ';
+}
 
 
 $main_content .= '
-        <section class="content">
+        <section class="content">   
+           '. $error .'        
            <h3>Search character</h3>
-           
             <form style="display: inline" formaction="#" method="post">
                 <input type="text" min="8" name="name" placeholder="Character name" required>
                 <input type="submit" value="Search">

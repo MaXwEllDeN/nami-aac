@@ -1,7 +1,7 @@
 <?php
 require_once "class.player.php";
 class Account{
-    private $id, $name, $password, $email, $premdays;
+    private $id, $name, $password, $email, $premdays, $creation, $real_name, $access;
     private $characters = array(); 
     
     public function __construct($param){
@@ -27,7 +27,10 @@ class Account{
         $this->password = $row["password"];
         $this->email = $row["email"];
         $this->premdays = $row["premdays"];
-            
+        $this->realName = $row["real_name"];
+        $this->creation = $row["creation"]; 
+        $this->access = $row["type"];
+        
         $stm = $db->prepare("SELECT * FROM `players` WHERE `account_id` = :acc;");
         $stm->bindValue(":acc", $row["id"]);        
         $stm->execute();
@@ -37,8 +40,19 @@ class Account{
         }        
     }
     
+    public function getRealName(){
+        return $this->realName;
+    }
+    
     public function getPassword(){
         return $this->password;
+    }
+    
+    public function getAccess(){
+        return $this->access;
+    }
+    public function getCreationTime(){
+        return $this->creation;
     }
     
     public function getPremDays(){

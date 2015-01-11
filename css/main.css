@@ -124,6 +124,16 @@ select{
     width: 32px;
 }
 
+.apanel_icon{
+    text-align: center;
+    font-weight: bold;   
+    padding-left: 20px;
+}
+
+.apanel_icon img{
+    height: 64px;
+    width: 64px;
+}
 
 .container{
     margin-top: 15px;    

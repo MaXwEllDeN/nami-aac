@@ -3,6 +3,8 @@
 $config = array(    
     // Server Info
     "server_name" => "Nami",
+    "days_to_delete" => 10, // Quantos dias para deletar um personagem marcado para ser excluído
+    "news_limit" => 5, // Quantas notícias mostrará por página.
     
     // Database Config    
     "db_driver" => "mysql",
@@ -17,7 +19,7 @@ $config = array(
     "smtp_user" => "no-reply@nami.esy.es",
     "smtp_pass" => "",
     
-    
+    // Server Configs
     "server" => array(
         "vocations" => array(
             0 => "No Vocation",
@@ -42,5 +44,29 @@ $config = array(
 );
 
 
+function HTML_Box($title, $content){
+    
+    return '    
+<div class="BoxInfo" style="margin-top: 20px; margin-bottom: 20px;">
+   <div class="CaptionContainer">
+        <div class="Caption">
+            <span class="borderEdge" style="top: -2px; left: -2px;"/></span>
+            <span class="borderEdge" style="top: -2px; right: -2px;"/></span>                    
+            <span class="borderH" style="top: -1px;"></span>
+            <span class="borderV" style="left: -1px;"/></span>
+            <span class="borderV" style="right: -1px;"/></span>
+            <span class="borderH" style="bottom: -2px;"></span>                    
+            <span class="borderEdge" style="left: -2px; bottom: -3px;"></span>
+            <span class="borderEdge" style="right: -2px; bottom: -3px;"></span>
+            <div class="Content">'. $title . '</div>
+        </div>
+    </div>
+
+    <div class="Content">
+        '. $content .'
+    </div>
+</div>';
+    
+}
 
 ?>
